@@ -115,6 +115,7 @@ export default class App extends React.Component {
         const isModule = _.includes(_.keys(componentsByModule), moduleName);
         const isComponent = (components[componentName] && !isModule);
         const isHome = !components[componentName] && !isModule;
+        const Home = this.props.home;
 
         return (
             <div className={`library-_-app${showSideBarClassName}`}>
@@ -130,7 +131,7 @@ export default class App extends React.Component {
                 </div>
                 {!!isComponent && this.renderComponentReview(componentName)}
                 {!!isModule && this.renderModulePreview(moduleName, true)}
-                {!!isHome && <ComponentsHome/>}
+                {!!isHome && (Home || <ComponentsHome/>)}
             </div>
         );
     }

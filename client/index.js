@@ -24,7 +24,8 @@ function init(
     documentation = libraryDocs,
     components = libraryData,
     rootElement,
-    baseRoute = '/'
+    baseRoute = '/',
+    home,
 ) {
     if (!rootElement) {
         rootElement = document.createElement('div');
@@ -44,8 +45,11 @@ function init(
                     componentsByModule={componentsByModule}
                     documentations={documentations}
                     compiler={compiler}
-                    baseRoute={baseRoute} />
-            )} />
+                    baseRoute={baseRoute}
+                    home={home}
+                />
+            )}
+            />
         </BrowserRouter>,
         rootElement
     );
